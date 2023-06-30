@@ -4,8 +4,8 @@ This is a backend implementation for user authentication features, including sig
 
 ## Requirements
 
-- Node.js (version X.X.X)
-- MySQL (version X.X.X)
+- Node.js
+- MySQL
 
 ## Installation
 
@@ -32,55 +32,25 @@ Start the server:
 
 ## User Registration
 
-- Endpoint: POST /api/users/register
-
-- Request Body:
-
-{
+curl -X POST -H "Content-Type: application/json" -d '{
   "firstName": "John",
-  "lastName": "Doe",
-  "username": "johndoe",
-  "email": "johndoe@example.com",
+  "lastName": "abc",
+  "username": "xyz",
+  "email": "abc@example.com",
   "password": "password123"
-}
+}' http://localhost:3000/api/users/register
 
-- Response:
-
-{
-  "message": "User registered successfully"
-}
 
 ## User Login
 
-- Endpoint: POST /api/users/login
-
-- Request Body:
-
-{
-  "email": "johndoe@example.com",
+curl -X POST -H "Content-Type: application/json" -d '{
+  "email": "abc@example.com",
   "password": "password123"
-}
-
-- Response:
-
-{
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTYyMzg2MzIxMCwiZXhwIjoxNjIzODg5NjEwfQ.3PzS4VXJ_wdIu8DEJnG2I9UIgwnFgTh0o29mGZk8cjs"
-}
+}' http://localhost:3000/api/users/login
 
 ## User Details
 
-- Endpoint: GET /api/users/user-details
-
-- Request Header:
-
-- Authorization: Bearer <token>
-
-- Response:
-
-{
-  "userId": 1,
-  "message": "User details fetched successfully"
-}
+curl -X GET -H "Authorization: Bearer <token>" http://localhost:3000/api/users/user-details
 
 ## Security Considerations
 
